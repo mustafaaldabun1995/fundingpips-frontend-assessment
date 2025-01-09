@@ -30,7 +30,7 @@ Build a responsive and performant stock price tracker using modern frontend tech
 
 1. Write tests to validate your implementation:
    - **Unit Tests**: Test Redux slices and individual components using **Testing Library**.
-   - **End-to-End Tests**: Use **Cypress** to simulate user interactions, such as adding/removing favorites and filtering stocks.
+   - **End-to-End Tests (Optional)**: Use **Cypress** to simulate user interactions, such as adding/removing favorites and filtering stocks.
 
 ---
 
@@ -48,7 +48,7 @@ Build a responsive and performant stock price tracker using modern frontend tech
 ## **Deliverables**
 
 1. A fully functional application that meets the requirements.
-2. Tests (unit and end-to-end) included in the codebase.
+2. Tests included in the codebase.
 3. A detailed **README** that includes:
    - Instructions to run the application and tests.
    - Explanation of your design decisions and trade-offs.
