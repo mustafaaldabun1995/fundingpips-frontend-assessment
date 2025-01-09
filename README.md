@@ -86,18 +86,24 @@ This project was bootstrapped with [`create-next-app`](https://nextjs.org/docs/a
 
 ## **Evaluation Criteria**
 
-1. Code Quality:
+1. **Code Quality**:
    - Clean, modular, and maintainable code adhering to best practices.
-2. Functionality:
+2. **Functionality**:
    - Completeness of the required features and responsiveness of the UI.
-3. Testing:
+3. **Testing**:
    - Coverage and quality of unit and end-to-end tests.
-4. Optimisation:
+4. **Optimisation**:
    - Implementation of performance improvements and scalability.
-5. Documentation:
+5. **Documentation**:
    - Clarity and thoroughness of your README file.
-6. Problem-Solving:
+6. **Problem-Solving**:
    - Ability to handle edge cases and provide thoughtful solutions.
+
+---
+
+## **Estimated Time**
+
+The task is designed to take approximately **4–6 hours** to complete.
 
 ---
 
