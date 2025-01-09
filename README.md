@@ -15,13 +15,17 @@ Build a responsive and performant stock price tracker using modern frontend tech
 ### **1. Core Feature Implementation**
 
 1. Build a stock price tracker dashboard that includes:
-
    - **Data Fetching**: Fetch stock prices from a public API (e.g., [Alpha Vantage](https://www.alphavantage.co/documentation/) or mock data).
    - **Table Display**: Display stock prices in a sortable and filterable table.
    - **Favorites**: Add/remove stocks to/from a list of favorites.
    - **Responsive Design**: Use **Tailwind CSS** to style the UI for responsiveness and modern aesthetics.
-
-2. **State Management**:
+2. Stocks should be displayed in a table with the following columns:
+   - **Stock Symbol**: The ticker symbol (e.g., AAPL, TSLA).
+   - **Company Name**: The name of the company (e.g., Apple, Tesla).
+   - **Price**: The current stock price in USD (e.g., $150.25).
+   - **Change**: The price change in USD compared to the previous close (e.g., +$2.50, -$1.30).
+   - **Percentage Change**: The percentage change compared to the previous close (e.g., +1.5%, -0.8%).
+3. **State Management**:
    - Use **Redux Toolkit** to manage global state for the application.
 
 ---
