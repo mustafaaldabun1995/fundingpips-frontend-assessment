@@ -34,18 +34,14 @@ Build a responsive and performant stock price tracker using modern frontend tech
 
 ---
 
-### **3. Optimization and Scalability**
+### **3. Optimisation and Scalability**
 
-1. Optimize the application for performance:
+1. Optimise the application for performance:
 
    - Implement lazy loading for components where applicable.
    - Use memoization to reduce unnecessary re-renders.
 
-2. Prepare for monorepo integration:
-
-   - Refactor the application structure to be suitable for integration into a monorepo.
-
-3. Use **TypeScript** to ensure type safety across the project.
+2. Use **TypeScript** to ensure type safety across the project.
 
 ---
 
