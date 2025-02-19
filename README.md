@@ -82,12 +82,12 @@ We want to see **how you approach building a Next.js system from scratch**. Key 
 
 ## Submission Instructions
 
-1. Fork this repository.
+1. Clone this directory.
 2. Complete the implementation.
-3. Submit a pull request with a link to your hosted demo (if applicable).
+3. Submit a link to your repo and ideally a link to your working application on vercel/netlify or equivalent.
 
 ## Final Notes
 
-This is not just about "getting it working"—we are looking for **scalability, performance, and decision-making skills**. Show us how you think as a **senior Next.js engineer**.
+This is not just about "getting it working" - we are looking for **scalability, performance, and decision-making skills**. Show us how you think as a **senior engineer**.
 
 Good luck, and happy coding! 🚀
