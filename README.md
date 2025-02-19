@@ -82,7 +82,7 @@ We want to see **how you approach building a Next.js system from scratch**. Key 
 
 ## Submission Instructions
 
-1. Clone this directory.
+1. Clone this repository.
 2. Complete the implementation.
 3. Submit a link to your repo and ideally a link to your working application on vercel/netlify or equivalent.
 
