@@ -1,114 +1,123 @@
-# Funding Pips Frontend Assessment
+Funding Pips - Senior Frontend Engineer Assessment
 
-Welcome to the Funding Pips Frontend Assessment! This project is a starting point for your task, and you are expected to build upon it to complete the challenge. The goal is to evaluate your technical skills, problem-solving ability, and proficiency with modern frontend development tools.
+Overview
 
----
+Welcome to the Funding Pips frontend assessment. This challenge is designed to evaluate your ability to architect, build, and optimize a scalable, high-performance Next.js application. We are looking for self-driven engineers who can make sound technical decisions without micromanagement.
 
-## **Objective**
+The Challenge
 
-Build a responsive and performant stock price tracker using modern frontend technologies. The challenge focuses on your expertise in **React**, **Redux Toolkit**, **Tailwind CSS**, **TypeScript**, and testing frameworks while assessing your problem-solving skills and ability to optimise solutions.
+Problem Statement
 
----
+You need to build a real-time stock tracking application where users can:
 
-## **Requirements**
+Search for stocks by name or ticker symbol.
 
-### **1. Core Feature Implementation**
+View live stock price updates.
 
-1. Build a stock price tracker dashboard that includes:
-   - **Data Fetching**: Fetch stock prices from a public API (e.g., [Alpha Vantage](https://www.alphavantage.co/documentation/) or mock data).
-   - **Table Display**: Display stock prices in a sortable and filterable table.
-   - **Favorites**: Add/remove stocks to/from a list of favorites.
-   - **Responsive Design**: Use **Tailwind CSS** to style the UI for responsiveness and modern aesthetics.
-2. Stocks should be displayed in a table with the following columns:
-   - **Stock Symbol**: The ticker symbol (e.g., AAPL, TSLA).
-   - **Company Name**: The name of the company (e.g., Apple, Tesla).
-   - **Price**: The current stock price in USD (e.g., $150.25).
-   - **Change**: The price change in USD compared to the previous close (e.g., +$2.50, -$1.30).
-   - **Percentage Change**: The percentage change compared to the previous close (e.g., +1.5%, -0.8%).
-3. **State Management**:
-   - Use **Redux Toolkit** to manage global state for the application.
+Analyze historical price trends.
 
----
+Manage a watchlist of selected stocks.
 
-### **2. Testing**
+Requirements
 
-1. Write tests to validate your implementation:
-   - **Unit Tests**: Test Redux slices and individual components using **Testing Library**.
-   - **End-to-End Tests (Optional)**: Use **Cypress** to simulate user interactions, such as adding/removing favorites and filtering stocks.
+Framework: Must use Next.js 15.
 
----
+React Components: Implement proper Server Components (RSCs) vs. Client Components for optimized performance.
 
-### **3. Optimisation and Scalability**
+API Integration: Use an appropriate stock API or mock the data if necessary.
 
-1. Optimise the application for performance:
+State Management: Use a scalable approach (e.g., React Context, or Redux Toolkit).
 
-   - Implement lazy loading for components where applicable.
-   - Use memoization to reduce unnecessary re-renders.
+Performance: Optimize rendering using Turbopack, caching, and efficient data fetching strategies.
 
-2. Use **TypeScript** to ensure type safety across the project.
+UI/UX: The design should be clean and responsive, using Tailwind CSS.
 
----
+What We Are Looking For
 
-## **Deliverables**
+We want to see how you approach building a Next.js system from scratch. Key areas we will evaluate:
 
-1. A fully functional application that meets the requirements.
-2. Tests included in the codebase.
-3. A detailed **README** that includes:
-   - Instructions to run the application and tests.
-   - Explanation of your design decisions and trade-offs.
-   - Notes on performance optimizations and scalability considerations.
-   - Ideas for future improvements.
+1️⃣ Architectural Decisions
 
----
+Do you correctly structure the project for scalability and maintainability?
 
-## **Getting Started**
+Are you effectively using React Server Components (RSCs) vs. Client Components?
 
-This project was bootstrapped with [`create-next-app`](https://nextjs.org/docs/api-reference/create-next-app). Follow these steps to get started:
+Are you minimizing client-side JavaScript to optimize performance?
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Run the development server:
-   ```bash
-   npm run dev
-   ```
-3. Open http://localhost:3000 with your browser to see the result.
+2️⃣ Code Quality & Maintainability
 
----
+Is the codebase modular and well-organized?
 
-## **Submission Instructions**
+Are there reusable components?
 
-1. Clone this repository and complete the challenge in your own repository.
-2. Once complete, make your repository public and share the link with us.
-3. Ensure your repository includes:
-   - The complete source code.
-   - Test files and results.
-   - A detailed README file.
+Are TypeScript types properly defined and enforced?
 
----
+3️⃣ Performance Optimization
 
-## **Evaluation Criteria**
+Are API calls optimized with ISR (Incremental Static Regeneration), SSR, or caching (next/cache)?
 
-1. **Code Quality**:
-   - Clean, modular, and maintainable code adhering to best practices.
-2. **Functionality**:
-   - Completeness of the required features and responsiveness of the UI.
-3. **Testing**:
-   - Coverage and quality of unit and end-to-end tests.
-4. **Optimisation**:
-   - Implementation of performance improvements and scalability.
-5. **Documentation**:
-   - Clarity and thoroughness of your README file.
-6. **Problem-Solving**:
-   - Ability to handle edge cases and provide thoughtful solutions.
+Are React components optimized to prevent unnecessary updates?
 
----
+Is Turbopack leveraged for fast builds?
 
-## **Estimated Time**
+4️⃣ Error Handling & Edge Cases
 
-The task is designed to take approximately **4–6 hours** to complete.
+How does the app handle API failures?
 
----
+Does it provide meaningful error messages?
 
-Thank you for taking the time to complete this challenge. We look forward to reviewing your submission!
+How does it handle edge cases like an invalid stock ticker?
+
+5️⃣ Testing Strategy (Optional but encouraged)
+
+Did you include unit or integration tests?
+
+Are Jest and Testing Library used effectively?
+
+How would you ensure the app remains stable as it scales?
+
+Technical Constraints
+
+Must use Next.js 15, React 19, and TypeScript.
+
+Tailwind CSS is the preferred styling solution.
+
+State management can be done via React Context, Zustand, or Redux Toolkit.
+
+Bonus Points (Not Required but Impressive)
+
+Implement WebSockets for real-time stock price updates.
+
+Use ISR (Incremental Static Regeneration) or SSR (Server-Side Rendering) effectively.
+
+Provide a Dockerfile for easy deployment.
+
+Implement authentication (OAuth, Firebase, etc.) for user watchlists.
+
+Deliverables
+
+A GitHub repository with your implementation.
+
+A README file explaining:
+
+Your architectural decisions.
+
+How to run the project.
+
+Any trade-offs or optimizations you made.
+
+(Optional) A short Loom video or document explaining your approach.
+
+Submission Instructions
+
+Fork this repository.
+
+Complete the implementation.
+
+Submit a pull request with a link to your hosted demo (if applicable).
+
+Final Notes
+
+This is not just about "getting it working"—we are looking for scalability, performance, and decision-making skills. Show us how you think as a senior Next.js engineer.
+
+Good luck, and happy coding! 🚀
