@@ -20,7 +20,7 @@ You need to build a **real-time stock tracking application** where users can:
 - **Framework:** Must use **Next.js 15**.
 - **React Components:** Implement proper **Server Components (RSCs) vs. Client Components** for optimized performance.
 - **API Integration:** Use an appropriate **stock API** (e.g. Alpha Vantage, Yahoo Finance, or Polygon.io’s free tier) or mock the data if necessary.
-- **State Management:** Use a scalable approach (e.g., **React Context, Zustand, or Redux Toolkit**).
+- **State Management:** Use a scalable approach (e.g. **React Context, Zustand, or Redux Toolkit**).
 - **Performance:** Optimize rendering using **Turbopack, caching, and efficient data fetching strategies**.
 - **UI/UX:** The design should be clean and responsive, using **Tailwind CSS**.
 
@@ -54,6 +54,7 @@ We want to see **how you approach building a Next.js system from scratch**. Key 
 
 ### 5️⃣ Testing Strategy _(Optional but encouraged)_
 
+- Optional but it would be good to see at least one unit and one integration test.
 - Did you include unit or integration tests?
 - Are Jest and Testing Library used effectively?
 - How would you ensure the app remains stable as it scales?
