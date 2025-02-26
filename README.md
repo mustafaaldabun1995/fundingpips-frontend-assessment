@@ -26,7 +26,9 @@ You need to build a **real-time stock tracking application** where users can:
 
 ## What We Are Looking For
 
-We want to see **how you approach building a Next.js system from scratch**. Key areas we will evaluate:
+We want to see **how you approach building a Next.js system from scratch** but note that we don't expect everything to be perfect, it's about trade offs and how you approach problems to solve, you shouldn't need to spend anymore than 4-6 hours here as an example you could implement real time updates or add a poll to a http request, both achieve similar things but one is far quicker to deliver, this would be something to note in your trade offs or decisions made.
+
+Key areas we will evaluate:
 
 ### 1️⃣ Architectural Decisions
 
