@@ -1,26 +1,30 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { Stock } from '../types/stock';
 
-interface WatchlistStore {
+interface WatchlistState {
   watchlist: Stock[];
   addToWatchlist: (stock: Stock) => void;
-  removeFromWatchlist: (symbol: string) => void;
-  isInWatchlist: (symbol: string) => boolean;
+  removeFromWatchlist: (stock: Stock) => void;
+  clearWatchlist: () => void;
 }
 
-export const useWatchlistStore = create<WatchlistStore>((set, get) => ({
-  watchlist: [],
-  addToWatchlist: (stock) => {
-    set((state) => ({
-      watchlist: [...state.watchlist, stock],
-    }));
-  },
-  removeFromWatchlist: (symbol) => {
-    set((state) => ({
-      watchlist: state.watchlist.filter((stock) => stock.symbol !== symbol),
-    }));
-  },
-  isInWatchlist: (symbol) => {
-    return get().watchlist.some((stock) => stock.symbol === symbol);
-  },
-})); 
+export const useWatchlistStore = create<WatchlistState>()(
+  persist(
+    (set) => ({
+      watchlist: [],
+      addToWatchlist: (stock) =>
+        set((state) => ({
+          watchlist: [...state.watchlist, stock],
+        })),
+      removeFromWatchlist: (stock) =>
+        set((state) => ({
+          watchlist: state.watchlist.filter((s) => s.symbol !== stock.symbol),
+        })),
+      clearWatchlist: () => set({ watchlist: [] }),
+    }),
+    {
+      name: 'watchlist-storage',
+    }
+  )
+); 

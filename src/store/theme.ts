@@ -14,7 +14,6 @@ export const useThemeStore = create<ThemeStore>()(
       toggleTheme: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
       initializeTheme: () => {
         if (typeof window !== 'undefined') {
-          // Check if user has a theme preference in localStorage
           const savedTheme = localStorage.getItem('theme-storage');
           if (savedTheme) {
             try {
@@ -26,7 +25,6 @@ export const useThemeStore = create<ThemeStore>()(
             }
           }
 
-          // Check system preference
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           set({ isDarkMode: prefersDark });
         }
@@ -37,7 +35,6 @@ export const useThemeStore = create<ThemeStore>()(
       skipHydration: true,
       onRehydrateStorage: () => (state) => {
         if (state) {
-          // Apply theme immediately on rehydration
           if (state.isDarkMode) {
             document.documentElement.classList.add('dark');
           } else {

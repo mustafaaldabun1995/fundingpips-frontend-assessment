@@ -6,6 +6,7 @@ export interface Stock {
   changePercent: number;
   marketCap: number;
   volume: number;
+  lastUpdated?: string;
 }
 
 export interface StockSearchResult {
