@@ -1,64 +1,36 @@
 'use client';
 
 import { useState } from 'react';
-import { StockSearchResult } from '@/types';
-import { searchStocks } from '@/lib/api';
+import { useRouter } from 'next/navigation';
 
 export default function StockSearch() {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState<StockSearchResult[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
 
-  const handleSearch = async (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) return;
-
-    setIsLoading(true);
-    try {
-      const searchResults = await searchStocks(query);
-      setResults(searchResults);
-    } catch (error) {
-      console.error('Error searching stocks:', error);
-    } finally {
-      setIsLoading(false);
+    if (searchQuery.trim()) {
+      router.push(`/stocks/${searchQuery.trim().toUpperCase()}`);
     }
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <form onSubmit={handleSearch} className="mb-6">
-        <div className="flex gap-2">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search stocks by name or symbol..."
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50"
-          >
-            {isLoading ? 'Searching...' : 'Search'}
-          </button>
-        </div>
-      </form>
-
-      {results.length > 0 && (
-        <div className="space-y-2">
-          {results.map((stock) => (
-            <div
-              key={stock.symbol}
-              className="p-4 border rounded-lg hover:bg-gray-50 cursor-pointer"
-            >
-              <h3 className="font-semibold">{stock.name}</h3>
-              <p className="text-sm text-gray-600">{stock.symbol}</p>
-              <p className="text-sm text-gray-500">{stock.exchange}</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <form onSubmit={handleSearch} className="w-full max-w-2xl mx-auto">
+      <div className="flex flex-col sm:flex-row gap-4">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Enter stock symbol (e.g., AAPL) or company name"
+          className="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+        <button
+          type="submit"
+          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+        >
+          Search
+        </button>
+      </div>
+    </form>
   );
 } 

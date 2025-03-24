@@ -1,4 +1,4 @@
-import StockSearch from '@/components/StockSearch';
+import StockSearch from '@/src/components/StockSearch';
 
 export default function StocksPage() {
   return (
