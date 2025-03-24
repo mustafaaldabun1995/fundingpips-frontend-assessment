@@ -24,19 +24,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative">
-      <ParallaxBackground />
-      
       <div className="relative z-10">
-        <header className="bg-white/80 dark:bg-[#000042]/80 backdrop-blur-sm shadow-sm sticky top-0 z-20">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center">
-              <Logo />
-            </div>
-          </div>
-        </header>
-
         <StatsSection />
-
         <div className="container mx-auto px-4 py-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

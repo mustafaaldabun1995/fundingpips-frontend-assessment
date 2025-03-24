@@ -1,20 +1,7 @@
-import Logo from '../../../components/Logo';
-import ParallaxBackground from '../../../components/ParallaxBackground';
-
 export default function Loading() {
   return (
     <main className="min-h-screen relative">
-      <ParallaxBackground />
-      
       <div className="relative z-10">
-        <header className="bg-white/80 dark:bg-[#000042]/80 backdrop-blur-sm shadow-sm sticky top-0 z-20">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center">
-              <Logo />
-            </div>
-          </div>
-        </header>
-
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="flex-grow">
