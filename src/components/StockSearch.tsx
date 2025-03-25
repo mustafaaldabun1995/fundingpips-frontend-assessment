@@ -10,7 +10,7 @@ export default function StockSearch() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/stocks/${searchQuery.trim().toUpperCase()}`);
+      router.push(`/stock/${searchQuery.trim().toUpperCase()}`);
     }
   };
 
