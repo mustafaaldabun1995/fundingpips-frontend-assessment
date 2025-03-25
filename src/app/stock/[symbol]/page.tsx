@@ -9,14 +9,16 @@ import TrendingCryptos from '../../../components/stock/TrendingCryptos';
 import TopGainers from '../../../components/stock/TopGainers';
 import TopLosers from '../../../components/stock/TopLosers';
 
-interface StockPageProps {
-  params: {
+type Props = {
+  params: Promise<{
     symbol: string;
-  };
-}
+  }>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  searchParams: any;
+};
 
-export default async function StockDetailPage({ params }: StockPageProps) {
-  const symbol = params.symbol;
+export default async function StockDetailPage({ params }: Props) {
+  const { symbol } = await params;
   
   try {
     const [initialStock, initialHistory] = await Promise.all([
@@ -49,9 +51,15 @@ export default async function StockDetailPage({ params }: StockPageProps) {
           <div className="space-y-6">
             <BuyForm stock={{
               symbol,
+              name: initialStock.name,
               price: initialStock.price,
+              marketCap: initialStock.marketCap,
+              volume: initialStock.volume,
               change: initialStock.change,
-              changePercent: initialStock.changePercent
+              changePercent: initialStock.changePercent,
+              high: initialStock.high,
+              low: initialStock.low,
+              lastUpdated: initialStock.lastUpdated
             }} />
             <TrendingCryptos />
             <TopGainers />

@@ -16,6 +16,44 @@ interface AlphaVantageResponse {
   top_losers: AlphaVantageStock[];
 }
 
+interface AlphaVantageSearchMatch {
+  '1. symbol': string;
+  '2. name': string;
+  '4. exchange': string;
+}
+
+interface AlphaVantageSearchResponse {
+  bestMatches: AlphaVantageSearchMatch[];
+}
+
+interface AlphaVantageQuote {
+  '01. symbol': string;
+  '02. name': string;
+  '05. price': string;
+  '09. change': string;
+  '10. change percent': string;
+  '06. volume': string;
+  '07. latest trading day': string;
+  '03. high': string;
+  '04. low': string;
+}
+
+interface AlphaVantageGlobalQuoteResponse {
+  'Global Quote': AlphaVantageQuote;
+}
+
+interface AlphaVantageTimeSeriesData {
+  '1. open': string;
+  '2. high': string;
+  '3. low': string;
+  '4. close': string;
+  '6. volume': string;
+}
+
+interface AlphaVantageTimeSeriesResponse {
+  'Time Series (Daily)': Record<string, AlphaVantageTimeSeriesData>;
+}
+
 export async function fetchStocks(): Promise<Stock[]> {
   try {
     const response = await fetch(
@@ -63,13 +101,13 @@ export async function searchStocks(query: string): Promise<StockSearchResult[]> 
     const response = await fetch(
       `${BASE_URL}?function=SYMBOL_SEARCH&keywords=${query}&apikey=${ALPHA_VANTAGE_API_KEY}`
     );
-    const data = await response.json();
+    const data: AlphaVantageSearchResponse = await response.json();
 
     if (!response.ok) {
       throw new Error('Failed to search stocks');
     }
 
-    return data.bestMatches.map((match: any) => ({
+    return data.bestMatches.map((match) => ({
       symbol: match['1. symbol'],
       name: match['2. name'],
       exchange: match['4. exchange'],
@@ -84,7 +122,7 @@ export async function getStockQuote(symbol: string): Promise<Stock> {
   const response = await fetch(
     `${BASE_URL}?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${ALPHA_VANTAGE_API_KEY}`
   );
-  const data = await response.json();
+  const data: AlphaVantageGlobalQuoteResponse = await response.json();
   const quote = data['Global Quote'];
   
   return {
@@ -115,14 +153,14 @@ export async function getStockHistory(symbol: string): Promise<StockHistory[]> {
     const response = await fetch(
       `${BASE_URL}?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=full&entitlement=delayed&apikey=${ALPHA_VANTAGE_API_KEY}`
     );
-    const data = await response.json();
+    const data: AlphaVantageTimeSeriesResponse = await response.json();
 
     if (!response.ok) {
       throw new Error('Failed to fetch stock history');
     }
 
     const timeSeriesData = data['Time Series (Daily)'];
-    return Object.entries(timeSeriesData).map(([date, values]: [string, any]) => ({
+    return Object.entries(timeSeriesData).map(([date, values]) => ({
       date,
       open: parseFloat(values['1. open']),
       high: parseFloat(values['2. high']),
