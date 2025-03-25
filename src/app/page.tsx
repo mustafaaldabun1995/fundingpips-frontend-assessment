@@ -11,6 +11,7 @@ import { Stock } from '../types/stock';
 
 export default function Home() {
   const [stocks, setStocks] = useState<Stock[]>([]);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
     const loadStocks = async () => {
@@ -19,6 +20,10 @@ export default function Home() {
     };
     loadStocks();
   }, []);
+
+  const handleViewMore = () => {
+    setVisibleCount(prev => Math.min(prev + 6, stocks.length));
+  };
 
   return (
     <main className="min-h-screen relative">
@@ -57,18 +62,43 @@ export default function Home() {
             >
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Top Movers</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {stocks.map((stock, index) => (
+                {stocks.slice(0, visibleCount).map((stock, index) => (
                   <motion.div
                     key={stock.symbol}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
                   >
                     <StockCard stock={stock} />
                   </motion.div>
                 ))}
               </div>
+              {stocks.length > 6 && (
+                <div className="flex justify-center gap-4 mt-8">
+                  {visibleCount < stocks.length && (
+                    <motion.button
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={handleViewMore}
+                      className="relative group px-8 py-3 rounded-xl bg-white/20 dark:bg-[#000042]/20 backdrop-blur-xs border border-white/40 dark:border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/20 to-transparent dark:from-white/20 dark:via-white/10 dark:to-transparent rounded-xl blur-xl" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent dark:from-white/10 dark:to-transparent rounded-xl" />
+                      <span className="relative flex items-center gap-2 text-gray-900 dark:text-white font-medium">
+                        View More
+                        <svg 
+                          className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </motion.button>
+                  )}
+                </div>
+              )}
             </motion.div>
             
             <motion.div 
