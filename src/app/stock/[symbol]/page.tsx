@@ -1,6 +1,8 @@
 import { getStockQuote, getStockHistory } from '../../../lib/api';
 import { notFound } from 'next/navigation';
 import StockDetailClient from '../../../components/stock/StockDetailClient';
+import StockActions from '../../../components/stock/StockActions';
+import StockPromotion from '../../../components/stock/StockPromotion';
 
 interface StockPageProps {
   params: {
@@ -21,7 +23,13 @@ export default async function StockDetailPage({ params }: StockPageProps) {
       notFound();
     }
 
-    return <StockDetailClient initialStock={initialStock} initialHistory={initialHistory} symbol={symbol} />;
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <StockDetailClient initialStock={initialStock} initialHistory={initialHistory} symbol={symbol} />
+        <StockActions symbol={symbol} />
+        <StockPromotion symbol={symbol} />
+      </div>
+    );
   } catch (error) {
     throw new Error(`Failed to load stock data for ${symbol}`);
   }
