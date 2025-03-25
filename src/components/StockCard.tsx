@@ -12,7 +12,6 @@ interface StockCardProps {
 export default function StockCard({ stock }: StockCardProps) {
   const { addToWatchlist, removeFromWatchlist, watchlist } = useWatchlistStore();
   const router = useRouter();
-  
   const isInWatchlist = watchlist.some(s => s.symbol === stock.symbol);
 
   const handleClick = (e: React.MouseEvent) => {
