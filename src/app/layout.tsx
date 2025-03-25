@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ThemeToggle from "../components/ThemeToggle";
-import ThemeProvider from "../components/ThemeProvider";
-import ParallaxBackground from "../components/ParallaxBackground";
-import Logo from "../components/Logo";
+import ThemeToggle from "../components/ui/ThemeToggle";
+import ThemeProvider from "../components/theme/ThemeProvider";
+import ParallaxBackground from "../components/visual/ParallaxBackground";
+import Logo from "../components/ui/Logo";
 
 const inter = Inter({ subsets: ["latin"] });
 

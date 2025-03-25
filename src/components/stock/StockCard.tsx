@@ -1,8 +1,8 @@
 'use client';
 
-import { Stock } from '../types/stock';
+import { Stock } from '../../types/stock';
 import { motion } from 'framer-motion';
-import { useWatchlistStore } from '../store/watchlist';
+import { useWatchlistStore } from '../../store/watchlist';
 import { useRouter } from 'next/navigation';
 
 interface StockCardProps {

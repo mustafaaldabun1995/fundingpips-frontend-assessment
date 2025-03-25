@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import Logo from '../../../components/Logo';
-import ParallaxBackground from '../../../components/ParallaxBackground';
+import Logo from '../../../components/ui/Logo';
+import ParallaxBackground from '../../../components/visual/ParallaxBackground';
 
 export default function Error({
   error,

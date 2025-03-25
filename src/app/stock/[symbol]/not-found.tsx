@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Logo from '../../../components/Logo';
-import ParallaxBackground from '../../../components/ParallaxBackground';
+import Logo from '../../../components/ui/Logo';
+import ParallaxBackground from '../../../components/visual/ParallaxBackground';
 
 export default function NotFound() {
   return (

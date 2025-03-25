@@ -1,7 +1,7 @@
 'use client';
 
-import { useWatchlistStore } from '../store/watchlist';
-import StockCard from './StockCard';
+import { useWatchlistStore } from '../../store/watchlist';
+import StockCard from '../stock/StockCard';
 import { motion } from 'framer-motion';
 
 export default function WatchlistSection() {

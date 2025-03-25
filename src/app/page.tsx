@@ -1,12 +1,12 @@
 'use client';
 
-import StockSearch from '../components/StockSearch';
-import StockCard from '../components/StockCard';
-import WatchlistSection from '../components/WatchlistSection';
+import StockSearch from '../components/stock/StockSearch';
+import StockCard from '../components/stock/StockCard';
+import WatchlistSection from '../components/layout/WatchlistSection';
 import { fetchStocks } from '../lib/api';
-import Logo from '../components/Logo';
-import ParallaxBackground from '../components/ParallaxBackground';
-import StatsSection from '../components/StatsSection';
+import Logo from '../components/ui/Logo';
+import ParallaxBackground from '../components/visual/ParallaxBackground';
+import StatsSection from '../components/layout/StatsSection';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Stock } from '../types/stock';
