@@ -3,18 +3,31 @@ import { Stock, StockSearchResult } from '../types/stock';
 const ALPHA_VANTAGE_API_KEY = process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY;
 const BASE_URL = 'https://www.alphavantage.co/query';
 
+interface AlphaVantageStock {
+  ticker: string;
+  price: string;
+  change_amount: string;
+  change_percentage: string;
+  volume: string;
+}
+
+interface AlphaVantageResponse {
+  top_gainers: AlphaVantageStock[];
+  top_losers: AlphaVantageStock[];
+}
+
 export async function fetchStocks(): Promise<Stock[]> {
   try {
     const response = await fetch(
       `${BASE_URL}?function=TOP_GAINERS_LOSERS&apikey=${ALPHA_VANTAGE_API_KEY}`
     );
-    const data = await response.json();
+    const data: AlphaVantageResponse = await response.json();
 
     if (!response.ok) {
       throw new Error('Failed to fetch stocks');
     }
 
-    const topGainers = data.top_gainers.map((stock: any) => ({
+    const topGainers = data.top_gainers.map((stock: AlphaVantageStock) => ({
       symbol: stock.ticker,
       name: stock.ticker,
       price: parseFloat(stock.price),
@@ -22,9 +35,11 @@ export async function fetchStocks(): Promise<Stock[]> {
       changePercent: parseFloat(stock.change_percentage),
       marketCap: 0,
       volume: parseInt(stock.volume),
+      high: parseFloat(stock.price),
+      low: parseFloat(stock.price),
     }));
 
-    const topLosers = data.top_losers.map((stock: any) => ({
+    const topLosers = data.top_losers.map((stock: AlphaVantageStock) => ({
       symbol: stock.ticker,
       name: stock.ticker,
       price: parseFloat(stock.price),
@@ -32,6 +47,8 @@ export async function fetchStocks(): Promise<Stock[]> {
       changePercent: parseFloat(stock.change_percentage),
       marketCap: 0,
       volume: parseInt(stock.volume),
+      high: parseFloat(stock.price),
+      low: parseFloat(stock.price),
     }));
 
     return [...topGainers, ...topLosers];

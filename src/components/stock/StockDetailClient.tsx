@@ -5,7 +5,6 @@ import { getStockQuote, StockHistory } from '../../lib/api';
 import { Stock } from '../../types/stock';
 import { Period } from '../../utils/stock';
 import StockChart from './StockChart';
-import BuyForm from './BuyForm';
 import { motion } from 'framer-motion';
 
 interface StockDetailClientProps {
@@ -16,7 +15,7 @@ interface StockDetailClientProps {
 
 export default function StockDetailClient({ initialStock, initialHistory, symbol }: StockDetailClientProps) {
   const [stock, setStock] = useState<Stock>(initialStock);
-  const [history, setHistory] = useState<StockHistory[]>(initialHistory);
+  const [history] = useState<StockHistory[]>(initialHistory);
   const [selectedPeriod, setSelectedPeriod] = useState<Period>('1M');
 
   useEffect(() => {

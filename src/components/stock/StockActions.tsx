@@ -1,10 +1,11 @@
 import { TrendingUp, PieChart, BarChart3 } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 interface StockActionCardProps { 
   title: string; 
   description: string; 
   buttonText: string; 
-  icon: any;
+  icon: LucideIcon;
 }
 
 const StockActionCard = ({ 

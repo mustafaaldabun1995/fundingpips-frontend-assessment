@@ -22,7 +22,7 @@ export default function NotFound() {
               Stock Not Found
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              The stock symbol you're looking for doesn't exist or couldn't be found.
+              The stock symbol you&apos;re looking for doesn&apos;t exist or couldn&apos;t be found.
             </p>
             <Link
               href="/"

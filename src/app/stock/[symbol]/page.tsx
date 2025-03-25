@@ -60,7 +60,7 @@ export default async function StockDetailPage({ params }: StockPageProps) {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch {
     throw new Error(`Failed to load stock data for ${symbol}`);
   }
 } 

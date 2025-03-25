@@ -37,7 +37,7 @@ export default function StockInfo({ stock }: StockInfoProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white/30 dark:bg-white/5 rounded-lg p-4">
-          <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">Today's Change</div>
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">Today&apos;s Change</div>
           <div className={`text-xl font-semibold ${changeColor} flex items-center gap-1`}>
             {isPositiveChange ? <ArrowUpIcon className="w-4 h-4" /> : <ArrowDownIcon className="w-4 h-4" />}
             ${Math.abs(stock.change).toFixed(2)}

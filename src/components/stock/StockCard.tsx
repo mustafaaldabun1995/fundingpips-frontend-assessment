@@ -41,7 +41,11 @@ export default function StockCard({ stock }: StockCardProps) {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                isInWatchlist ? removeFromWatchlist(stock) : addToWatchlist(stock);
+                if (isInWatchlist) {
+                  removeFromWatchlist(stock);
+                } else {
+                  addToWatchlist(stock);
+                }
               }}
               className="p-2 rounded-full bg-white/40 dark:bg-white/10 hover:bg-white/60 dark:hover:bg-white/20 transition-colors backdrop-blur-md"
             >
