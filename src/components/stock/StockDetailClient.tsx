@@ -38,7 +38,7 @@ export default function StockDetailClient({ initialStock, initialHistory, symbol
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white/80 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg p-8"
+            className="bg-[#dfebfe]/20 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg p-8"
           >
             <div className="flex justify-between items-start mb-6">
               <div>

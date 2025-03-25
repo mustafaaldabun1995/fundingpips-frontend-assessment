@@ -20,7 +20,7 @@ export default function BuyForm({ stock }: BuyFormProps) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white/80 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg p-8"
+      className="bg-[#dfebfe]/90 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg p-8"
     >
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold text-gray-900 dark:text-white">Buy {stock.symbol}</h2>
