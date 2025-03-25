@@ -9,6 +9,15 @@ interface SearchResult {
   name: string;
 }
 
+interface AlphaVantageMatch {
+  '1. symbol': string;
+  '2. name': string;
+}
+
+interface AlphaVantageResponse {
+  bestMatches?: AlphaVantageMatch[];
+}
+
 export default function StockSearch() {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState<SearchResult[]>([]);
@@ -28,12 +37,12 @@ export default function StockSearch() {
       const response = await fetch(
         `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${query}&apikey=${process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY}`
       );
-      const data = await response.json();
+      const data: AlphaVantageResponse = await response.json();
       
       if (data.bestMatches) {
         const limitedResults = data.bestMatches
           .slice(0, 5)
-          .map((match: any) => ({
+          .map((match: AlphaVantageMatch) => ({
             symbol: match['1. symbol'],
             name: match['2. name'],
           }));
