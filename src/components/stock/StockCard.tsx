@@ -15,7 +15,6 @@ export default function StockCard({ stock }: StockCardProps) {
   const isInWatchlist = watchlist.some(s => s.symbol === stock.symbol);
 
   const handleClick = (e: React.MouseEvent) => {
-    // Prevent navigation if clicking the watchlist button
     if ((e.target as HTMLElement).closest('button')) {
       return;
     }
