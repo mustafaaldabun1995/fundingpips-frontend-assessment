@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Stock } from '../../../types/stock';
+import { Stock } from '../../types/stock';
 
 interface BuyFormProps {
   stock: Stock;

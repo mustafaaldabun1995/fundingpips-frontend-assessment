@@ -1,11 +1,11 @@
-import StockDetailClientSkeleton from '../../../components/stock/StockDetailClientSkeleton';
-import StockInfoSkeleton from '../../../components/stock/StockInfoSkeleton';
-import StockActionsSkeleton from '../../../components/stock/StockActionsSkeleton';
-import StockPromotionSkeleton from '../../../components/stock/StockPromotionSkeleton';
-import BuyFormSkeleton from '../../../components/stock/BuyFormSkeleton';
-import TrendingCryptosSkeleton from '../../../components/stock/TrendingCryptosSkeleton';
-import TopGainersSkeleton from '../../../components/stock/TopGainersSkeleton';
-import TopLosersSkeleton from '../../../components/stock/TopLosersSkeleton';
+import StockDetailClientSkeleton from '../../../components/stock/Skeleton/StockDetailClientSkeleton';
+import StockInfoSkeleton from '../../../components/stock/Skeleton/StockInfoSkeleton';
+import StockActionsSkeleton from '../../../components/stock/Skeleton/StockActionsSkeleton';
+import StockPromotionSkeleton from '../../../components/stock/Skeleton/StockPromotionSkeleton';
+import BuyFormSkeleton from '../../../components/stock/Skeleton/BuyFormSkeleton';
+import TrendingCryptosSkeleton from '../../../components/stock/Skeleton/TrendingCryptosSkeleton';
+import TopGainersSkeleton from '../../../components/stock/Skeleton/TopGainersSkeleton';
+import TopLosersSkeleton from '../../../components/stock/Skeleton/TopLosersSkeleton';
 
 export default function Loading() {
   return (

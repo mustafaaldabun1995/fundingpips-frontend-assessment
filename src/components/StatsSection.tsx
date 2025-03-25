@@ -16,7 +16,6 @@ export default function StatsSection() {
 
   return (
     <div ref={containerRef} className="relative py-24 overflow-hidden">
-      {/* Background layers with parallax */}
       <motion.div
         style={{ y: y1 }}
         className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 dark:from-blue-500/5 dark:via-purple-500/5 dark:to-pink-500/5"
@@ -41,7 +40,6 @@ export default function StatsSection() {
         }} />
       </motion.div>
 
-      {/* Content */}
       <div className="relative container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

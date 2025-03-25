@@ -11,24 +11,20 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
   const { isDarkMode, initializeTheme } = useThemeStore();
   const [mounted, setMounted] = useState(false);
 
-  // Initialize theme on mount
   useEffect(() => {
     initializeTheme();
     setMounted(true);
   }, [initializeTheme]);
 
-  // Handle theme changes
   useEffect(() => {
     if (!mounted) return;
 
-    // Set initial theme
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
 
-    // Listen for system theme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
       useThemeStore.setState({ isDarkMode: e.matches });
@@ -41,7 +37,6 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     };
   }, [isDarkMode, mounted]);
 
-  // Prevent hydration mismatch
   if (!mounted) {
     return null;
   }
