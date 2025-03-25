@@ -88,9 +88,6 @@ export default function StockDetailClient({ initialStock, initialHistory, symbol
             </div>
           </motion.div>
         </div>
-        <div className="lg:w-96">
-          <BuyForm stock={stock} />
-        </div>
       </div>
     </div>
   );

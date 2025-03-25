@@ -79,6 +79,8 @@ export async function getStockQuote(symbol: string): Promise<Stock> {
     marketCap: 0,
     volume: parseInt(quote['06. volume']),
     lastUpdated: quote['07. latest trading day'],
+    high: parseFloat(quote['03. high']),
+    low: parseFloat(quote['04. low'])
   };
 }
 

@@ -7,6 +7,8 @@ export interface Stock {
   marketCap: number;
   volume: number;
   lastUpdated?: string;
+  high: number;
+  low: number;
 }
 
 export interface StockSearchResult {
