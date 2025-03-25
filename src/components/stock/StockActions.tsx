@@ -63,7 +63,7 @@ export default function StockActions({ symbol }: { symbol: string }) {
         />
         <StockActionCard
           title="Portfolio"
-          description="Track your investments, monitor performance, and manage your portfolio."
+          description="Track your investments, monitor and manage your portfolio."
           buttonText="View Portfolio"
           icon={PieChart}
         />
