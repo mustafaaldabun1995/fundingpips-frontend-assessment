@@ -22,8 +22,17 @@ export const getPriceInterval = (min: number, max: number) => {
   return Math.ceil(range / 10);
 };
 
-export const getXAxisInterval = (dataLength: number, selectedPeriod: Period) => {
-  if (dataLength <= 10) return 0; // Show all points
+export const getXAxisInterval = (dataLength: number, selectedPeriod: Period, viewportWidth: number) => {
+  if (dataLength <= 10) return 0;
+  
+  if (viewportWidth < 640) {
+    if (selectedPeriod === '7D') return Math.floor(dataLength / 2.5);
+    if (selectedPeriod === '1M') return Math.floor(dataLength / 4);
+    if (selectedPeriod === '3M') return Math.floor(dataLength / 5);
+    if (selectedPeriod === '6M') return Math.floor(dataLength / 3);
+    return Math.floor(dataLength / 4);
+  }
+  
   if (selectedPeriod === '7D') return Math.floor(dataLength / 7);
   if (selectedPeriod === '1M') return Math.floor(dataLength / 10);
   if (selectedPeriod === '3M') return Math.floor(dataLength / 12);

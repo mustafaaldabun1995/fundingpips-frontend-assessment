@@ -2,7 +2,7 @@ export default function StockDetailClientSkeleton() {
   return (
     <div className="flex flex-col lg:flex-row gap-8 mb-12">
       <div className="flex-grow">
-        <div className="bg-white/80 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg p-8">
+        <div className="bg-white/80 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg lg:p-8">
           <div className="flex justify-between items-start mb-6">
             <div>
               <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-32 mb-2"></div>

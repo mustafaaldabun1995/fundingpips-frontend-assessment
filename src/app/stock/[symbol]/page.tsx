@@ -35,6 +35,20 @@ export default async function StockDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <StockDetailClient initialStock={initialStock} initialHistory={initialHistory} symbol={symbol} />
+            <div className="lg:hidden mb-6">
+              <BuyForm stock={{
+                symbol,
+                name: initialStock.name,
+                price: initialStock.price,
+                marketCap: initialStock.marketCap,
+                volume: initialStock.volume,
+                change: initialStock.change,
+                changePercent: initialStock.changePercent,
+                high: initialStock.high,
+                low: initialStock.low,
+                lastUpdated: initialStock.lastUpdated
+              }} />
+            </div>
             <StockInfo stock={{
               symbol,
               price: initialStock.price,
@@ -49,18 +63,20 @@ export default async function StockDetailPage({ params }: Props) {
             <StockPromotion symbol={symbol} />
           </div>
           <div className="space-y-6">
-            <BuyForm stock={{
-              symbol,
-              name: initialStock.name,
-              price: initialStock.price,
-              marketCap: initialStock.marketCap,
-              volume: initialStock.volume,
-              change: initialStock.change,
-              changePercent: initialStock.changePercent,
-              high: initialStock.high,
-              low: initialStock.low,
-              lastUpdated: initialStock.lastUpdated
-            }} />
+            <div className="hidden lg:block">
+              <BuyForm stock={{
+                symbol,
+                name: initialStock.name,
+                price: initialStock.price,
+                marketCap: initialStock.marketCap,
+                volume: initialStock.volume,
+                change: initialStock.change,
+                changePercent: initialStock.changePercent,
+                high: initialStock.high,
+                low: initialStock.low,
+                lastUpdated: initialStock.lastUpdated
+              }} />
+            </div>
             <TrendingCryptos />
             <TopGainers />
             <TopLosers />

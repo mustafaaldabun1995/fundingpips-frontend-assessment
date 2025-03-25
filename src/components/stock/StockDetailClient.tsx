@@ -32,13 +32,13 @@ export default function StockDetailClient({ initialStock, initialHistory, symbol
   }, [symbol]);
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto lg:py-8">
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="flex-grow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-[#dfebfe]/20 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg p-8"
+            className="bg-[#dfebfe]/20 dark:bg-[#000042]/80 backdrop-blur-sm rounded-xl shadow-lg lg:p-8"
           >
             <div className="flex justify-between items-start mb-6">
               <div>
@@ -75,7 +75,7 @@ export default function StockDetailClient({ initialStock, initialHistory, symbol
               <StockChart history={history} selectedPeriod={selectedPeriod} />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 hidden lg:grid">
               <div className="bg-white/50 dark:bg-white/10 rounded-lg p-4">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Last Updated</h3>
                 <p className="text-gray-600 dark:text-gray-300">{stock.lastUpdated}</p>

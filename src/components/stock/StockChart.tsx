@@ -11,6 +11,7 @@ import {
   AreaChart,
 } from 'recharts';
 import { Period, getPriceInterval, getXAxisInterval, formatDate, getFilteredHistory } from '../../utils/stock';
+import { useState, useEffect } from 'react';
 
 interface StockChartProps {
   history: StockHistory[];
@@ -18,6 +19,17 @@ interface StockChartProps {
 }
 
 export default function StockChart({ history, selectedPeriod }: StockChartProps) {
+  const [viewportWidth, setViewportWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const filteredHistory = getFilteredHistory(history, selectedPeriod);
 
   const minPrice = filteredHistory.length ? Math.min(...filteredHistory.map(h => h.close)) : 0;
@@ -33,7 +45,7 @@ export default function StockChart({ history, selectedPeriod }: StockChartProps)
     yAxisTicks.push(Number(price.toFixed(2)));
   }
 
-  const xAxisInterval = getXAxisInterval(filteredHistory.length, selectedPeriod);
+  const xAxisInterval = getXAxisInterval(filteredHistory.length, selectedPeriod, viewportWidth);
 
   return (
     <div className="h-[400px]">
@@ -52,14 +64,16 @@ export default function StockChart({ history, selectedPeriod }: StockChartProps)
             tick={{ fill: '#666' }}
             interval={xAxisInterval}
           />
-          <YAxis
-            stroke="#666"
-            tickFormatter={(value) => `$${value.toFixed(2)}`}
-            tick={{ fill: '#666' }}
-            domain={[yAxisMin, yAxisMax]}
-            ticks={yAxisTicks}
-            allowDecimals={true}
-          />
+          {viewportWidth >= 640 && (
+            <YAxis
+              stroke="#666"
+              tickFormatter={(value) => `$${value.toFixed(2)}`}
+              tick={{ fill: '#666' }}
+              domain={[yAxisMin, yAxisMax]}
+              ticks={yAxisTicks}
+              allowDecimals={true}
+            />
+          )}
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <Tooltip
             contentStyle={{
