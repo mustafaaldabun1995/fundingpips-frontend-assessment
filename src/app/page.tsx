@@ -62,7 +62,7 @@ export default function Home() {
             >
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Top Movers</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {stocks.slice(0, visibleCount).map((stock, index) => (
+                {stocks.slice(0, visibleCount).map((stock) => (
                   <motion.div
                     key={stock.symbol}
                     initial={{ opacity: 0 }}
