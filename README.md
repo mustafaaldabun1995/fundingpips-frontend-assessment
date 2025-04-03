@@ -22,12 +22,7 @@ npm install
 yarn install
 ```
 
-3. Create a `.env` file in the root directory and add your environment variables:
-```env
-NEXT_PUBLIC_API_KEY=your_api_key_here
-```
-
-4. Run the development server:
+3. Run the development server:
 ```bash
 npm run dev
 # or
@@ -42,8 +37,6 @@ The application will be available at [http://localhost:3000](http://localhost:30
 - `npm run build` or `yarn build` - Build the application for production
 - `npm run start` or `yarn start` - Start the production server
 - `npm run lint` or `yarn lint` - Run ESLint
-- `npm run test` or `yarn test` - Run tests
-- `npm run test:watch` or `yarn test:watch` - Run tests in watch mode
 
 ## Tech Stack
 
@@ -52,4 +45,3 @@ The application will be available at [http://localhost:3000](http://localhost:30
 - TypeScript
 - Tailwind CSS
 - Zustand (State Management)
-- Jest & Testing Library (Testing)
